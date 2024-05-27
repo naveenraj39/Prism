@@ -1,5 +1,7 @@
 package qa.prism;
 
+import java.time.Duration;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
@@ -11,6 +13,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helper.Reader;
 
@@ -18,6 +22,7 @@ import helper.Reader;
 @TestInstance(Lifecycle.PER_CLASS)
 public class Login_Test {
 	WebDriver driver;
+	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	
 	
 	@BeforeAll
@@ -43,11 +48,11 @@ public class Login_Test {
 		driver.findElement(By.xpath("//*[text()='Azure Org']")).click();
 		driver.findElement(By.xpath("//*[@type='button']")).click();
 		
-		Thread.sleep(10000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("prism.admin@hriturajtriomics.onmicrosoft.com")));
 		
 		driver.findElement(By.xpath("//*[@type='email']")).sendKeys("prism.admin@hriturajtriomics.onmicrosoft.com");
 		driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@type='password']")));
 		driver.findElement(By.xpath("//*[@type='password']")).sendKeys("Yoko368836123");
 		driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();
 		

@@ -22,7 +22,7 @@ import helper.Reader;
 @TestInstance(Lifecycle.PER_CLASS)
 public class Login_Test {
 	WebDriver driver;
-	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	WebDriverWait wait;
 	
 	
 	@BeforeAll
@@ -34,6 +34,7 @@ public class Login_Test {
 		
 		ChromeOptions option = new ChromeOptions();
 		driver = new ChromeDriver(option);
+		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		
 		driver.get("https://prism.qa.triomics.in/");
 		

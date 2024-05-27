@@ -36,15 +36,14 @@ public class Login_Test {
 		driver = new ChromeDriver(option);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 		
-		driver.get("https://prism.qa.triomics.in/");
 		
-		String title = driver.getTitle();
-		System.out.println(title);
+		
 		
 	}
 	
 	@Test
-	public void login() throws Exception {
+	public void login_prism_withValidUsername_validPassword() throws Exception {
+		driver.get("https://prism.qa.triomics.in/");
 		driver.findElement(By.xpath("//*[@id='dropdown-selectorganisation']")).click();
 		driver.findElement(By.xpath("//*[text()='Azure Org']")).click();
 		driver.findElement(By.xpath("//*[@type='button']")).click();
@@ -58,7 +57,26 @@ public class Login_Test {
 		driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();
 		
 		driver.findElement(By.xpath("//*[@id='idBtn_Back']")).click();
+		driver.close();
+	}
+	
+	@Test
+	public void login_prism_withValidUsername_invalidPassword() throws Exception {
+		driver.get("https://prism.qa.triomics.in/");
+		driver.findElement(By.xpath("//*[@id='dropdown-selectorganisation']")).click();
+		driver.findElement(By.xpath("//*[text()='Azure Org']")).click();
+		driver.findElement(By.xpath("//*[@type='button']")).click();
 		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@type='email']")));
+		
+		driver.findElement(By.xpath("//*[@type='email']")).sendKeys("prism.admin@hriturajtriomics.onmicrosoft.com");
+		driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@type='password']")));
+		driver.findElement(By.xpath("//*[@type='password']")).sendKeys("Yoko3688361231");
+		driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();
+		
+		driver.findElement(By.xpath("//*[@id='idBtn_Back']")).click();
+		driver.close();
 	}
 	
 	@AfterAll

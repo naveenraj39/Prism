@@ -55,7 +55,7 @@ public class Login_Test {
 	@Order(1)
 	public void login_prism_withValidUsername_validPassword() throws Exception {
 		
-		try {
+		
 		driver.get("https://prism.qa.triomics.in/");
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dropdown-selectorganisation']")));
 		driver.findElement(By.xpath("//*[@id='dropdown-selectorganisation']")).click();
@@ -71,11 +71,9 @@ public class Login_Test {
 		driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();
 		
 		driver.findElement(By.xpath("//*[@id='idBtn_Back']")).click();
-		driver.close(); 
-		}
-		finally {
-			tearDown();
-		}
+		
+		
+		
 		
 	}
 	

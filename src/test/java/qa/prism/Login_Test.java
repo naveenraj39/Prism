@@ -63,7 +63,7 @@ public class Login_Test {
 		driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();
 		
 		driver.findElement(By.xpath("//*[@id='idBtn_Back']")).click();
-		
+		driver.close();
 	}
 	
 	@Test

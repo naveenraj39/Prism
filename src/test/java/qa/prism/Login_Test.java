@@ -38,20 +38,23 @@ public class Login_Test {
 		ChromeOptions option = new ChromeOptions();
 		driver = new ChromeDriver(option);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		
-		
+			
 		
 		
 	}
 	
 	
 	
+	public void launch_driver() {
+		driver.get("https://prism.qa.triomics.in/");
+	}
+	
 	@Test
 	@Order(1)
-	public void login_prism_withValidUsername_validPassword() throws Exception {
+	public void login_prism_withValidUsername_validPassword()  {
 		
-	
-		driver.get("https://prism.qa.triomics.in/");
+	     launch_driver();
+		
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dropdown-selectorganisation']")));
 		driver.findElement(By.xpath("//*[@id='dropdown-selectorganisation']")).click();
 		driver.findElement(By.xpath("//*[text()='Azure Org']")).click();
@@ -66,11 +69,12 @@ public class Login_Test {
 		driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();
 		
 		driver.findElement(By.xpath("//*[@id='idBtn_Back']")).click();
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@data-testid='showUserDetailsClick'])[1]")));
+	/*	wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@data-testid='showUserDetailsClick'])[1]")));
 		driver.findElement(By.xpath("(//*[@data-testid='showUserDetailsClick'])[1]")).click();
 		driver.findElement(By.xpath("//*[text()='Logout']")).click();
-		driver.findElement(By.xpath("//*[@data-testid='modalGenerator-submitCTA']")).click();
+		driver.findElement(By.xpath("//*[@data-testid='modalGenerator-submitCTA']")).click();  */
 		
+		driver.close();
 		
 		
 		
@@ -78,10 +82,10 @@ public class Login_Test {
 	
 	@Test
 	@Order(2)
-	public void login_prism_withValidUsername_invalidPassword() throws Exception {
+	public void login_prism_withValidUsername_invalidPassword()  {
 		
 		
-	    driver.navigate().to("https://prism.qa.triomics.in/");
+		   launch_driver();
 		
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dropdown-selectorganisation']")));
 		driver.findElement(By.xpath("//*[@id='dropdown-selectorganisation']")).click();

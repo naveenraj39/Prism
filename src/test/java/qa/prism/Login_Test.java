@@ -45,16 +45,14 @@ public class Login_Test {
 	
 	
 	
-	public void launch_driver() {
-		driver.get("https://prism.qa.triomics.in/");
-	}
+	
 	
 	@Test
 	@Order(1)
 	public void login_prism_withValidUsername_validPassword()  {
 		
-	     launch_driver();
-		
+	    
+		driver.get("https://prism.qa.triomics.in/");
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dropdown-selectorganisation']")));
 		driver.findElement(By.xpath("//*[@id='dropdown-selectorganisation']")).click();
 		driver.findElement(By.xpath("//*[text()='Azure Org']")).click();

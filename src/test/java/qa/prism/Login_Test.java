@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
@@ -20,6 +21,7 @@ import helper.Reader;
 
 
 @TestInstance(Lifecycle.PER_CLASS)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class Login_Test {
 	WebDriver driver;
 	WebDriverWait wait;
@@ -42,6 +44,7 @@ public class Login_Test {
 	}
 	
 	@Test
+	@Order(1)
 	public void login_prism_withValidUsername_validPassword() throws Exception {
 		driver.get("https://prism.qa.triomics.in/");
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dropdown-selectorganisation']")));
@@ -62,6 +65,7 @@ public class Login_Test {
 	}
 	
 	@Test
+	@Order(2)
 	public void login_prism_withValidUsername_invalidPassword() throws Exception {
 		driver.get("https://prism.qa.triomics.in/");
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dropdown-selectorganisation']")));

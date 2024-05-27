@@ -76,7 +76,7 @@ public class Login_Test {
 		
 		driver.close();
 		
-		
+		driver.get("https://prism.qa.triomics.in/");
 		
 	}
 	
@@ -85,7 +85,7 @@ public class Login_Test {
 	public void login_prism_withValidUsername_invalidPassword()  {
 		
 		
-		   launch_driver();
+		driver.get("https://prism.qa.triomics.in/");
 		
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='dropdown-selectorganisation']")));
 		driver.findElement(By.xpath("//*[@id='dropdown-selectorganisation']")).click();

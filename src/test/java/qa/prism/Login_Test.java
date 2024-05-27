@@ -3,6 +3,7 @@ package qa.prism;
 import java.time.Duration;
 
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -41,6 +42,13 @@ public class Login_Test {
 		
 		
 		
+	}
+	
+	@AfterEach
+	public void tearDown() {
+		if (driver!=null) {
+			driver.quit();
+		}
 	}
 	
 	@Test

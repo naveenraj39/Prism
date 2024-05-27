@@ -49,7 +49,7 @@ public class Login_Test {
 		driver.findElement(By.xpath("//*[text()='Azure Org']")).click();
 		driver.findElement(By.xpath("//*[@type='button']")).click();
 		
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("prism.admin@hriturajtriomics.onmicrosoft.com")));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@type='email']")));
 		
 		driver.findElement(By.xpath("//*[@type='email']")).sendKeys("prism.admin@hriturajtriomics.onmicrosoft.com");
 		driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();

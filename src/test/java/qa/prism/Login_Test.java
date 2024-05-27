@@ -66,7 +66,7 @@ public class Login_Test {
 		driver.findElement(By.xpath("//*[@id='idSIButton9']")).click();
 		
 		driver.findElement(By.xpath("//*[@id='idBtn_Back']")).click();
-		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[@data-testid='showUserDetailsClick'])[1]")));
 		driver.findElement(By.xpath("(//*[@data-testid='showUserDetailsClick'])[1]")).click();
 		driver.findElement(By.xpath("//*[text()='Logout']")).click();
 		driver.findElement(By.xpath("//*[@data-testid='modalGenerator-submitCTA']")).click();

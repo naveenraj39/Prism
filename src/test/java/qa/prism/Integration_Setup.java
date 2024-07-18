@@ -17,7 +17,7 @@ import pom.Super_org;
 @TestInstance(Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
-public class Integration_Setup_Test extends BaseClass{
+public class Integration_Setup extends BaseClass{
 	
 	WebDriver driver;
 	WebDriverWait wait;
@@ -34,7 +34,7 @@ public void setupConnection() throws Exception {
 
 @Test
 @Order(1)
-public void searchOrg() {
+public void searchOrg() throws InterruptedException {
 
 	OT.searchAndViewOrg();
 		
@@ -42,8 +42,12 @@ public void searchOrg() {
 
 @Test
 @Order(2)
-public void integration() {
+public void integration() throws Exception {
 	OT.smtpSetup();
+    OT.hl7Setup();
+    OT.hl7Setup2();
+    OT.hapiSetup();
+    
 }
 
 

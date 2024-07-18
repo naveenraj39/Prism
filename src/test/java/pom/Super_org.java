@@ -1,8 +1,13 @@
 package pom;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -93,7 +98,25 @@ public class Super_org {
 @FindBy(xpath="//*[text()='Supported Versions']/../descendant::div[@role='button']")WebElement hl7Versions;
 @FindBy(xpath="//*[@data-value='2.5.1']")WebElement selectHL7Version;
 @FindBy(xpath="//*[text()='Supported Message Types']/../descendant::div[@role='button']")WebElement hl7MsgTypes;
+@FindBy(xpath="//*[@role='listbox']")WebElement hl7MsgList;
+@FindBy(xpath="//*[@role='button']/child::span[text()='Use TLS']")WebElement useTLS;
+@FindBy(xpath="//*[@data-testid='-false']")WebElement selectTLS;
+@FindBy(xpath="//*[@type='button']/descendant::div[text()='Add Department']")WebElement addDept;
 
+@FindBy(xpath="(//*[text()='Supported Versions']/../descendant::div[@role='button'])[1]")WebElement returnClk;
+
+//HAPI
+
+@FindBy(xpath="//*[@role='button']/descendant::p[text()='HAPI FHIR EHR']")WebElement hapi;
+@FindBy(xpath="(//*[@placeholder='FHIR Version'])[2]")WebElement fhirVersion;
+@FindBy(xpath="(//*[@placeholder='FHIR Base URL'])[2]")WebElement fhirBaseUrl;
+@FindBy(xpath="(//*[@placeholder='MRN System List'])[2]")WebElement systemList;
+@FindBy(xpath="(//*[@type='button']/child::span[text()='Save'])[2]")WebElement hapiSaveBtn;
+
+//smd
+
+@FindBy(xpath="//*[@data-testid='customPageHeader-tab-standard_medical_data']")WebElement smdTab;
+@FindBy(xpath="(//*[text()='Drag and drop to upload or Browse'])[1]")WebElement dragAndDrop;
 
 
 
@@ -200,6 +223,7 @@ public void smtp(String port, String host, String user, String pass) {
 	hostInput.sendKeys(host);
 	usernameInput.sendKeys(user);
 	passwordInput.sendKeys(pass);
+	smtpSaveBtn.click();
 	
 }
 
@@ -209,8 +233,41 @@ public void hl7_v2(String port) {
 	hl7PortInput.sendKeys(port);
 	hl7Versions.click();
 	selectHL7Version.click();
-	List<WebElement>ele = ldriver.findElements(By.xpath("//*[text()='Supported Message Types']/../descendant::div[@role='button']"));
-	Select sel = new Select(hl7MsgTypes);
 }
+
+public void hl7Msg() {
+	hl7MsgTypes.click();
+	List<WebElement> list = ldriver.findElements(By.xpath("//*[@role='listbox']/li"));
+	System.out.println(list.size());
+	for(int i=0;i<list.size();i++) {
+		list.get(i).click();
+	}
+}	
+public void useTLS() {
+	
+	useTLS.click();
+	selectTLS.click();
+	addDept.click();
+	
+}
+
+public void hapi(String version, String baseUrl, String mrnSystemList) throws Exception {
+	hapi.click();
+	fhirVersion.sendKeys(version);
+	fhirBaseUrl.sendKeys(baseUrl);
+	systemList.sendKeys(mrnSystemList);
+    systemList.sendKeys(Keys.ENTER);
+	if(hapiSaveBtn.isEnabled()) {
+		hapiSaveBtn.click();
+	}
+	
+}
+
+public void uploadSmdFiles(String file) {
+	smdTab.click();
+	dragAndDrop.sendKeys(file);
+	
+}
+
 
 }

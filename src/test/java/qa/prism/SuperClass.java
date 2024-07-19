@@ -35,7 +35,7 @@ import pom.Super_org;
 
 @TestInstance(Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class Org_Creation_Test extends BaseClass{
+public class SuperClass extends BaseClass{
 	WebDriver driver;
 	WebDriverWait wait;
 	String studyName;

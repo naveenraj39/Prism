@@ -21,12 +21,12 @@ public class Integration_Setup extends BaseClass{
 	
 	WebDriver driver;
 	WebDriverWait wait;
-	Org_Creation_Test OT;
+	SuperClass OT;
 	
 @BeforeAll
 public void setupConnection() throws Exception {
 	
-	OT = new Org_Creation_Test();
+	OT = new SuperClass();
 	OT.setup_connection();
 	OT.login_prism_withValidUsername_validPassword();
 		

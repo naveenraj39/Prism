@@ -200,7 +200,7 @@ public void adminDetails(String firstName, String lastName, String adminEmail, S
 public void setupAuth() {
 	selectAuth.click();
 	selectAWScognito.click();
-	//submitBtn.click();
+	submitBtn.click();
 }
 
 public void searchOrg(String orgName) {

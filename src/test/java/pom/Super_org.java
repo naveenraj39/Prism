@@ -84,17 +84,17 @@ public class Super_org {
 //SMTP setup
 
 @FindBy(xpath="//*[@role='button']/descendant::p[text()='SMTP']")WebElement smtpSection;
-@FindBy(xpath="(//*[@Placeholder='Port'])[2]")WebElement portInput;
-@FindBy(xpath="//*[@Placeholder='Host']")WebElement hostInput;
-@FindBy(xpath="(//*[@Placeholder='Username'])[1]")WebElement usernameInput;
-@FindBy(xpath="(//*[@placeholder='Password'])[1]")WebElement passwordInput;
+@FindBy(xpath="(//*[text()='Port']//parent::div//following-sibling::div//descendant::input)[2]")WebElement portInput;
+@FindBy(xpath="//*[text()='Host']//parent::div//following-sibling::div//descendant::input")WebElement hostInput;
+@FindBy(xpath="(//*[text()='Username']//parent::div//following-sibling::div//descendant::input)[1]")WebElement usernameInput;
+@FindBy(xpath="(//*[text()='Password']//parent::div//following-sibling::div//descendant::input)[1]")WebElement passwordInput;
 @FindBy(xpath="//*[text()='SMTP']/../parent::div/../following-sibling::div/descendant::span[text()='Save']")WebElement smtpSaveBtn;
 
 
 //HL7 V2
 
 @FindBy(xpath="//*[@role='button']/descendant::p[text()='HL7 V2']")WebElement hl7Section;
-@FindBy(xpath="(//*[@Placeholder='Port'])[1]")WebElement hl7PortInput;
+@FindBy(xpath="(//*[text()='Port']//parent::div//following-sibling::div//descendant::input)[1]")WebElement hl7PortInput;
 @FindBy(xpath="//*[text()='Supported Versions']/../descendant::div[@role='button']")WebElement hl7Versions;
 @FindBy(xpath="//*[@data-value='2.5.1']")WebElement selectHL7Version;
 @FindBy(xpath="//*[text()='Supported Message Types']/../descendant::div[@role='button']")WebElement hl7MsgTypes;
@@ -107,8 +107,8 @@ public class Super_org {
 
 //addDept
 
-@FindBy(xpath="//*[@placeholder='Enter the name of the department']")WebElement nameOfTheDepartment;
-@FindBy(xpath="//*[@placeholder='Code']")WebElement deptCode;
+@FindBy(xpath="//*[text()='Name']//parent::div//following-sibling::div//descendant::input")WebElement nameOfTheDepartment;
+@FindBy(xpath="//*[text()='Code']//parent::div//following-sibling::div//descendant::input")WebElement deptCode;
 @FindBy(xpath="//*[@role='button']//child::span[text()='Timezone']")WebElement timeZone;
 @FindBy(xpath="//*[@data-testid='-UTC']")WebElement selectZone;
 @FindBy(xpath="//*[@data-testid='modalGenerator-submitCTA']")WebElement saveDept;
@@ -116,9 +116,9 @@ public class Super_org {
 //HAPI
 
 @FindBy(xpath="//*[@role='button']/descendant::p[text()='HAPI FHIR EHR']")WebElement hapi;
-@FindBy(xpath="(//*[@placeholder='FHIR Version'])[2]")WebElement fhirVersion;
-@FindBy(xpath="(//*[@placeholder='FHIR Base URL'])[2]")WebElement fhirBaseUrl;
-@FindBy(xpath="(//*[@placeholder='MRN System List'])[2]")WebElement systemList;
+@FindBy(xpath="(//*[text()='FHIR Version']//parent::div//following-sibling::div//descendant::input)[2]")WebElement fhirVersion;
+@FindBy(xpath="(//*[text()='FHIR Base URL']//parent::div//following-sibling::div//descendant::input)[2]")WebElement fhirBaseUrl;
+@FindBy(xpath="(//*[text()='MRN System List']//parent::div//following-sibling::div//descendant::input)[2]")WebElement systemList;
 @FindBy(xpath="(//*[@type='button']/child::span[text()='Save'])[2]")WebElement hapiSaveBtn;
 
 //smd

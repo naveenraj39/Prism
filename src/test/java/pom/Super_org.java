@@ -236,6 +236,7 @@ public void viewOrg() {
 public void smtp(String port, String host, String user, String pass) {
 	
 	smtpSection.click();
+	portInput.clear();
 	portInput.sendKeys(port);
 	hostInput.sendKeys(host);
 	usernameInput.sendKeys(user);

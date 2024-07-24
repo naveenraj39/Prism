@@ -122,7 +122,10 @@ public class SuperClass extends BaseClass{
 	@Order(6)
 	public void smtpSetup() {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@role='button']/descendant::p[text()='SMTP']")));
-		superOrg.smtp("465", "smtp.gmail.com", "tools@triomics.in", "wqzm hesy jtoi loss");
+		superOrg.smtp();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[text()='Port']//parent::div//following-sibling::div//descendant::input)[2]")));
+		
+		superOrg.smtpSetup("465", "smtp.gmail.com", "tools@triomics.in", "wqzm hesy jtoi loss");
 	}
 	
 	@Test

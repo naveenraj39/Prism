@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.Properties;
+import java.util.Scanner;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -72,10 +73,16 @@ public class SuperClass extends BaseClass{
 		
 		driver.get(url);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@type='email']")));
-		superOrg.input_username();
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter UserName");
+		String uname = scan.nextLine();
+		System.out.println("Enter Password");
+		String pword = scan.nextLine();
+		superOrg.input_username(uname);
 		superOrg.click_on_next();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@type='password']")));
-		superOrg.input_password();
+		
+		superOrg.input_password(pword);
 		superOrg.login();
 		superOrg.select_No();
 		

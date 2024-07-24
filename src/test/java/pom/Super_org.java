@@ -4,6 +4,7 @@ import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.util.List;
+import java.util.Scanner;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -150,16 +151,17 @@ public class Super_org {
 
 
 
-public void input_username() {
-	input_username.sendKeys();
+public void input_username(String uname) {
+	
+	input_username.sendKeys(uname);
 }
 
 public void click_on_next() {
 	click_on_next.click();
 }
 
-public void input_password(){
-	input_password.sendKeys();
+public void input_password(String pword){
+	input_password.sendKeys(pword);
 }
 
 public void login() {

@@ -158,6 +158,8 @@ public class SuperClass extends BaseClass{
 	public void hapiSetup() throws Exception {
 		
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@role='button']/descendant::p[text()='HAPI FHIR EHR']")));
+		superOrg.hapiClick();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[text()='FHIR Version']//parent::div//following-sibling::div//descendant::input)[2]")));
 		superOrg.hapi("R4", "https://dopanciark.eng.triomics.in/", "https://sandbox.triomics.com/2024-05-23T22:00:00");
 		
 	}

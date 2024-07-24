@@ -279,8 +279,12 @@ public void addDept(String name, String code) {
 	saveDept.click();
 }
 
-public void hapi(String version, String baseUrl, String mrnSystemList) throws Exception {
+public void hapiClick() {
 	hapi.click();
+}
+
+public void hapi(String version, String baseUrl, String mrnSystemList) throws Exception {
+	
 	fhirVersion.sendKeys(version);
 	fhirBaseUrl.sendKeys(baseUrl);
 	systemList.sendKeys(mrnSystemList);

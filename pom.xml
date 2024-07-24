@@ -99,8 +99,8 @@
             <version>3.1.2</version> <!-- Ensure you have the correct version -->
             <configuration>
                 <includes>
-                    <include>**/*Test.java</include>
-                    <!--include>Org_Creation_Test</include-->
+                    <!--include>**/*Test.java</include-->
+                    <include>Integration_Setup</include>
                 </includes>
                 <runOrder>alphabetical</runOrder>
             </configuration>

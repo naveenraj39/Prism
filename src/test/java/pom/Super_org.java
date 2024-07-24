@@ -150,16 +150,16 @@ public class Super_org {
 
 
 
-public void input_username(String user) {
-	input_username.sendKeys(user);
+public void input_username() {
+	input_username.sendKeys();
 }
 
 public void click_on_next() {
 	click_on_next.click();
 }
 
-public void input_password(String pass){
-	input_password.sendKeys(pass);
+public void input_password(){
+	input_password.sendKeys();
 }
 
 public void login() {

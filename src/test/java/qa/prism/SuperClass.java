@@ -69,14 +69,13 @@ public class SuperClass extends BaseClass{
 	public void login_prism_withValidUsername_validPassword()  {
 	
 		String url = config.getProperty("dev_super_org");
-		String user = config.getProperty("dev_super_user");
-		String pass = config.getProperty("dev_super_pass");
+		
 		driver.get(url);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@type='email']")));
-		superOrg.input_username(user);
+		superOrg.input_username();
 		superOrg.click_on_next();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@type='password']")));
-		superOrg.input_password(pass);
+		superOrg.input_password();
 		superOrg.login();
 		superOrg.select_No();
 		

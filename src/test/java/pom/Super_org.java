@@ -113,6 +113,8 @@ public class Super_org {
 @FindBy(xpath="//*[@data-testid='-UTC']")WebElement selectZone;
 @FindBy(xpath="//*[@data-testid='modalGenerator-submitCTA']")WebElement saveDept;
 
+@FindBy(xpath="(//*[@type='button']//child::span[text()='Save'])[3]")WebElement saveHl7;
+
 //HAPI
 
 @FindBy(xpath="//*[@role='button']/descendant::p[text()='HAPI FHIR EHR']")WebElement hapi;
@@ -288,6 +290,7 @@ public void addDept(String name, String code) {
 		}
 	}
 	saveDept.click();
+	saveHl7.click();
 }
 
 public void hapiClick() {

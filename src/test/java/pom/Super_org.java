@@ -280,7 +280,13 @@ public void addDept(String name, String code) {
 	nameOfTheDepartment.sendKeys(name);
 	deptCode.sendKeys(code);
 	timeZone.click();
-	selectZone.click();
+	List<WebElement> times = ldriver.findElements(By.xpath("//*[@role='listbox']//child::li"));
+	for(WebElement timeZone:times) {
+		if(timeZone.getText().equals("UTC")) {
+			timeZone.click();
+			break;
+		}
+	}
 	saveDept.click();
 }
 

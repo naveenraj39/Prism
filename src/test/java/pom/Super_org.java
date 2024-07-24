@@ -247,9 +247,14 @@ public void smtpSetup(String port, String host, String user, String pass) {
 	
 }
 
+public void hl7Click() {
+	
+			hl7Section.click();
+}
+
 public void hl7_v2(String port) {
 	
-	hl7Section.click();
+	
 	hl7PortInput.sendKeys(port);
 	hl7Versions.click();
 	selectHL7Version.click();

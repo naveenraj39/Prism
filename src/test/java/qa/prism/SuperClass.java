@@ -132,6 +132,10 @@ public class SuperClass extends BaseClass{
 	@Order(7)
 	public void hl7Setup() {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@role='button']/descendant::p[text()='HL7 V2']")));
+		superOrg.hl7Click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//*[text()='Port']//parent::div//following-sibling::div//descendant::input)[1]")));
+		
+		
 		superOrg.hl7_v2("2575");
 	}
 	

@@ -29,6 +29,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import helper.Reader;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import pom.Super_org;
 
 
@@ -46,8 +47,8 @@ public class SuperClass extends BaseClass{
 		
 		
 		
-		System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver");
 		
+		WebDriverManager.chromedriver().setup();
 		ChromeOptions option = new ChromeOptions();
 		option.addArguments("--disable-cache");
 		driver = new ChromeDriver(option);
@@ -111,7 +112,7 @@ public class SuperClass extends BaseClass{
 	@Order(5)
 	public void searchAndViewOrg() throws InterruptedException {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@placeholder='Type something']")));
-		superOrg.searchOrg(studyName);
+		superOrg.searchOrg("test");
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@data-testid='TABLE_ROW_1']/descendant::button[@id='undefined-button']")));
 		Thread.sleep(2000);
 		superOrg.viewOrg();
@@ -144,12 +145,15 @@ public class SuperClass extends BaseClass{
 		WebElement element1 = driver.findElement(By.xpath("//*[text()='Supported Versions']"));
 		ac.moveToElement(element).click().build().perform();
 		superOrg.useTLS();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@placeholder='Enter the name of the department']")));
+		superOrg.addDept("Oncology", "#321");
         
 	}
 	
 	@Test
 	@Order(9)
 	public void hapiSetup() throws Exception {
+		
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@role='button']/descendant::p[text()='HAPI FHIR EHR']")));
 		superOrg.hapi("R4", "https://dopanciark.eng.triomics.in/", "https://sandbox.triomics.com/2024-05-23T22:00:00");
 		

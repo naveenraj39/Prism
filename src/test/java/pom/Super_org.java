@@ -74,7 +74,7 @@ public class Super_org {
 @FindBy(xpath="//*[@id='undefined-button']")WebElement clcikOnKebabButton;
 
 //temp
-	@FindBy(xpath="//*[@data-testid='TABLE_ROW_1']/descendant::button[@id='undefined-button']")WebElement tempKebabButton;
+	@FindBy(xpath="//*[@data-testid='TABLE_ROW_2']/descendant::button[@id='undefined-button']")WebElement tempKebabButton;
 		
 		
 @FindBy(xpath="//*[@data-testid='undefined-view_organisation']")WebElement viewOrgOption;
@@ -104,6 +104,14 @@ public class Super_org {
 @FindBy(xpath="//*[@type='button']/descendant::div[text()='Add Department']")WebElement addDept;
 
 @FindBy(xpath="(//*[text()='Supported Versions']/../descendant::div[@role='button'])[1]")WebElement returnClk;
+
+//addDept
+
+@FindBy(xpath="//*[@placeholder='Enter the name of the department']")WebElement nameOfTheDepartment;
+@FindBy(xpath="//*[@placeholder='Code']")WebElement deptCode;
+@FindBy(xpath="//*[@role='button']//child::span[text()='Timezone']")WebElement timeZone;
+@FindBy(xpath="//*[@data-testid='-UTC']")WebElement selectZone;
+@FindBy(xpath="//*[@data-testid='modalGenerator-submitCTA']")WebElement saveDept;
 
 //HAPI
 
@@ -249,6 +257,14 @@ public void useTLS() {
 	selectTLS.click();
 	addDept.click();
 	
+}
+
+public void addDept(String name, String code) {
+	nameOfTheDepartment.sendKeys(name);
+	deptCode.sendKeys(code);
+	timeZone.click();
+	selectZone.click();
+	saveDept.click();
 }
 
 public void hapi(String version, String baseUrl, String mrnSystemList) throws Exception {

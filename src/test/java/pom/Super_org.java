@@ -186,7 +186,16 @@ public void orgCreation(String acr, String name, String email, String phone, Str
 	setStreetName.sendKeys(street);
     setCity.sendKeys(city);
     setCountry.click();
-    setCountryIndia.click();
+    List<WebElement> country = ldriver.findElements(By.xpath("//*[@role='listbox']//child::li"));
+    String india = "India";
+    for(WebElement con:country) {
+    	if(con.getText().equals("India")) {
+    		con.click();
+    		break;
+    	}
+    }
+    
+  //  setCountryIndia.click();
     setPostcode.sendKeys(post);
     setState.sendKeys(state);
     setTimeZone.click();

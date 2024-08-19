@@ -100,7 +100,7 @@
             <configuration>
                 <includes>
                     <!--include>**/*Test.java</include-->
-                    <include>OrgCreation_Test</include>
+                    <include>Integration_Setup</include>
                 </includes>
                 <runOrder>alphabetical</runOrder>
             </configuration>

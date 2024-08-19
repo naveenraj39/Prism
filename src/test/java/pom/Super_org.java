@@ -16,7 +16,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-public class Super_org {
+import helper.DecryptData;
+
+public class Super_org extends DecryptData {
 	
 	WebDriver ldriver;
 	
@@ -151,17 +153,17 @@ public class Super_org {
 
 
 
-public void input_username(String uname) {
-	
-	input_username.sendKeys(uname);
+public void input_username() {
+	input_username.sendKeys(decrypt("cHJpc20uZGV2aWwuc3VwZXJvcmdhZG1pbkBocml0dXJhanRyaW9taWNzLm9ubWljcm9zb2Z0LmNvbQ=="));
 }
+
 
 public void click_on_next() {
 	click_on_next.click();
 }
 
-public void input_password(String pword){
-	input_password.sendKeys(pword);
+public void input_password(){
+	input_password.sendKeys(decryptp("S3VjdTI5NzYzODEyMw=="));
 }
 
 public void login() {

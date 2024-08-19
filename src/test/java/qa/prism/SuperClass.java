@@ -71,18 +71,15 @@ public class SuperClass extends BaseClass{
 	
 		String url = config.getProperty("dev_super_org");
 		
+		
 		driver.get(url);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@type='email']")));
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter UserName");
-		String uname = scan.nextLine();
-		System.out.println("Enter Password");
-		String pword = scan.nextLine();
-		superOrg.input_username(uname);
+		
+		superOrg.input_username();
 		superOrg.click_on_next();
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@type='password']")));
 		
-		superOrg.input_password(pword);
+		superOrg.input_password();
 		superOrg.login();
 		superOrg.select_No();
 		

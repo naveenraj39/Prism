@@ -69,7 +69,7 @@ public class SuperClass extends BaseClass{
 	@Order(1)
 	public void login_prism_withValidUsername_validPassword()  {
 	
-		String url = config.getProperty("dev_super_org");
+		String url = config.getProperty("qa_super_org");
 		
 		
 		driver.get(url);

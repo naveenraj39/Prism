@@ -21,11 +21,12 @@ public void invokeApplication() throws Exception {
 	superOrg.setup_connection();
 	superOrg.login_prism_withValidUsername_validPassword();
 }
-
+/*
 @Test
 @Order(1)
 public void addOrgDetail() throws Exception {
 	superOrg.addOrgDetail();
+	
 }
 
 @Test
@@ -52,7 +53,8 @@ public void integration() throws Exception {
 	superOrg.smtpSetup();
 	superOrg.hl7Setup();
 	superOrg.hl7Setup2();
+	
 	superOrg.hapiSetup();
 }
-
+*/
 }

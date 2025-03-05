@@ -21,14 +21,14 @@ public void invokeApplication() throws Exception {
 	superOrg.setup_connection();
 	superOrg.login_prism_withValidUsername_validPassword();
 }
-/*
+
 @Test
 @Order(1)
 public void addOrgDetail() throws Exception {
 	superOrg.addOrgDetail();
 	
 }
-
+/*
 @Test
 @Order(2)
 public void addOrgAdminDetails() {

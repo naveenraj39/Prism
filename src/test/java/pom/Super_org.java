@@ -196,16 +196,16 @@ public void orgCreation(String acr, String name, String email, String phone, Str
     String india = "India";
     for(WebElement con:country) {
     	if(con.getText().equals("India")) {
-    		con.click();
+    		con.click(); 
     		break;
     	}
-    }
+    }  
     
   //  setCountryIndia.click();
     setPostcode.sendKeys(post);
     setState.sendKeys(state);
-    setTimeZone.click();
-    timeZoneSelect.click();
+/*    setTimeZone.click();
+    timeZoneSelect.click(); */
     continueBtn.click();
 	
 }
